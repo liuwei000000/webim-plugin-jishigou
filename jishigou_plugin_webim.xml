@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[JishiGou! Plugin]]></item>
+	<item id="Version"><![CDATA[$SYS_VERSION$]]></item>
+	<item id="Time"><![CDATA[2013-03-22 15:48:08]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[0]]></item>
+			<item id="name"><![CDATA[webim]]></item>
+			<item id="identifier"><![CDATA[webim]]></item>
+			<item id="description"><![CDATA[web ¼´Ê±Í¨ÐÅ]]></item>
+			<item id="directory"><![CDATA[webim/]]></item>
+			<item id="copyright"><![CDATA[cenwor]]></item>
+			<item id="version"><![CDATA[1.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="modtype"><![CDATA[4]]></item>
+					<item id="mod_file"><![CDATA[themes]]></item>
+					<item id="mod_name"><![CDATA[Ö÷ÌâÑ¡Ôñ]]></item>
+					<item id="role_id"><![CDATA[7]]></item>
+				</item>
+				<item id="1">
+					<item id="modtype"><![CDATA[5]]></item>
+					<item id="mod_file"><![CDATA[webim]]></item>
+					<item id="mod_name"><![CDATA[]]></item>
+					<item id="role_id"><![CDATA[all]]></item>
+				</item>
+				<item id="2">
+					<item id="modtype"><![CDATA[4]]></item>
+					<item id="mod_file"><![CDATA[histories]]></item>
+					<item id="mod_name"><![CDATA[ÁÄÌì¼ÇÂ¼]]></item>
+					<item id="role_id"><![CDATA[7]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[11]]></item>
+				<item id="title"><![CDATA[Ö§³Ö´ÓIMµÇÂ¼]]></item>
+				<item id="description"><![CDATA[ÔÊÐíÎ´µÇÂ¼Ê±ÏÔÊ¾IM£¬²¢¿É´ÓimµÇÂ¼]]></item>
+				<item id="variable"><![CDATA[enable_login]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[ÏÔÊ¾ÕæÊµÐÕÃû]]></item>
+				<item id="description"><![CDATA[ÁªÏµÁÐ±íÄ¬ÈÏÏÔÊ¾ÓÃ»§Ãû]]></item>
+				<item id="variable"><![CDATA[show_realname]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[9]]></item>
+				<item id="title"><![CDATA[¹Ø±ÕÄ°ÉúÈËÁÄÌì]]></item>
+				<item id="description"><![CDATA[Ä¬ÈÏ»áÔÚÍøÒ³ÔÚÏßÓÃ»§ÅÔ±ßÏÔÊ¾ÁÄÌìÁ´½Ó]]></item>
+				<item id="variable"><![CDATA[disable_chatlink]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[8]]></item>
+				<item id="title"><![CDATA[¹Ø±ÕÈº×éÁÄÌì]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[disable_room]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[7]]></item>
+				<item id="title"><![CDATA[±íÇé]]></item>
+				<item id="description"><![CDATA[ÔÝÎÞÆäËû±íÇé¿ÉÑ¡£¬Çë²»ÒªÐÞ¸Ä´ËÏî]]></item>
+				<item id="variable"><![CDATA[emot]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[default]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[±¾µØÓïÑÔ]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[local]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[zh-CN]]></item>
+				<item id="extra"><![CDATA[zh-CN = ¼òÌåÖÐÎÄ
+zh-TW = ·±ÌåÖÐÎÄ
+en = English]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[Ö÷Ìâ]]></item>
+				<item id="description"><![CDATA[ÔÚÖ÷ÌâÑ¡Ôñ¹¦ÄÜÀïÑ¡ÔñÖ÷Ìâ]]></item>
+				<item id="variable"><![CDATA[theme]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[base]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[IM·þÎñÆ÷¶Ë¿Ú]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[port]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[8000]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="8">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[IM·þÎñÆ÷]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[host]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[webim20.cn]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="9">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[×¢²áapikey]]></item>
+				<item id="description"><![CDATA[ÓòÃû¶ÔÓ¦µÄapikey]]></item>
+				<item id="variable"><![CDATA[apikey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="10">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[×¢²áÓòÃû]]></item>
+				<item id="description"><![CDATA[ÔÚÏß°æÓÃ»§ÊäÈëÔÚwebim20.cnÖÐ×¢²áµÄÓòÃû]]></item>
+				<item id="variable"><![CDATA[domain]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+	<item id="installfile"><![CDATA[install.php]]></item>
+	<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	<item id="license"><![CDATA[<b>webimÊÇÒ»¸öÎªJishiGouÎ¢²©V4ÒÔÉÏ°æ±¾ÓÃ»§´òÔìµÄÍøÒ³°æ¼°Ê±ÁÄÌì¹¤¾ß£¨ÒªÇó¼ÇÊÂ¹·Î¢²©ÏµÍ³±ØÐëÔÚV4.0ÒÔÉÏ°æ±¾£©£¬ÓÃ»§Í¨¹ýÁÄÌì¹¤¾ßÀ¸¿ÉËæ¼´ÓëÔÚÏßºÃÓÑÁÄÌì¡£</b>
+ÔÚÏß°æÓÃ»§°²×°ºóÐèÒªµ½webim20.cn×¢²áÒ»¸öapikey£¬ÅäÖÃºó¼´¿ÉÊ¹ÓÃ¡£¸ü¶à°ïÖúÐÅÏ¢Çë·ÃÎÊ <a href=http://www.webim20.cn>webim20.cn</a>
+<b>¸ÐÐ»ÄúÑ¡ÔñÊ¹ÓÃJishiGou²úÆ·</b>
+º¼ÖÝÉñ»°ÍøÂçÓÐÏÞ¹«Ë¾(<i>Cenwor.com Technology Co., Ltd.</i>)Îª JishiGou²úÆ·µÄ¿ª·¢ÉÌ£¬ÒÀ·¨¶ÀÁ¢ÓµÓÐ JishiGou²úÆ·Öø×÷È¨¡£JishiGou ²úÆ·¹Ù·½ÍøÕ¾ÍøÖ·Îª <a href=http://www.jishigou.net>www.jishigou.net</a>¡£
+±¾ÊÚÈ¨Ð­ÒéÊÊÓÃÇÒ½öÊÊÓÃÓÚJishiGou²úÆ·£¬º¼ÖÝÉñ»°ÍøÂçÓÐÏÞ¹«Ë¾(<i>Cenwor.com Technology Co., Ltd.</i>)ÓµÓÐ¶Ô±¾ÊÚÈ¨Ð­ÒéµÄ×îÖÕ½âÊÍÈ¨¡£
+<b>I.Ð­ÒéÐí¿ÉµÄÈ¨Àû</b>
+1.Äú¿ÉÒÔÔÚÍêÈ«×ñÊØ±¾ÊÚÈ¨Ð­ÒéµÄ»ù´¡ÉÏ£¬½«±¾Èí¼þÓ¦ÓÃÓÚ·ÇÉÌÒµÓÃÍ¾£¬¶ø²»±ØÖ§¸¶Èí¼þ°æÈ¨ÊÚÈ¨·ÑÓÃ¡£
+2.Äú¿ÉÒÔÔÚ±¾ÊÚÈ¨Ð­Òé¹æ¶¨µÄÔ¼ÊøºÍÏÞÖÆ·¶Î§ÄÚÐÞ¸Ä JishiGou Ô´´úÂë(Èç¹û±»Ìá¹©µÄ»°)»ò½çÃæ·ç¸ñÒÔÊÊÓ¦ÄúµÄÍøÕ¾ÒªÇó¡£
+<b>II.Ð­Òé¹æ¶¨µÄÔ¼ÊøºÍÏÞÖÆ</b>
+1.Î´»ñÉÌÒµÊÚÈ¨Ö®Ç°£¬Äú²»µÃ½«JishiGou²úÆ·Èí¼þÓÃÓÚÉÌÒµÓÃÍ¾£¨°üÀ¨µ«²»ÏÞÓÚÆóÒµÍøÕ¾¡¢¾­ÓªÐÔÍøÕ¾¡¢ÒÔÓªÀûÎªÄ¿»òÊµÏÖÓ¯ÀûµÄÍøÕ¾£©¡£ÈçÓû»ñÈ¡ÉÌÒµÊÚÈ¨Çë·ÃÎÊ<a href=http://www.jishigou.net>www.jishigou.net</a>ÁË½âÏêÇé¡£
+2.Äú²»µÃ¶ÔJishiGou²úÆ·Èí¼þ»òÓëÖ®¹ØÁªµÄÉÌÒµÊÚÈ¨½øÐÐ³ö×â¡¢³öÊÛ¡¢µÖÑº»ò·¢·Å×ÓÐí¿ÉÖ¤¡£
+3.½ûÖ¹ÔÚ JishiGou²úÆ·µÄÕûÌå»òÈÎºÎ²¿·Ö»ù´¡ÉÏ·¢Õ¹ÈÎºÎÅÉÉú°æ±¾¡¢ÐÞ¸Ä°æ±¾»òµÚÈý·½°æ±¾ÓÃÓÚÖØÐÂ·Ö·¢¡£
+4.²»ÔÊÐíÉ¾³ýJishiGou²úÆ·°æÈ¨±êÊ¶£¨Powered by JishiGou£©¡£
+5.Èç¹ûÄúÎ´ÄÜ×ñÊØ±¾Ð­ÒéµÄÌõ¿î£¬ÄúµÄÊÚÈ¨½«±»ÖÕÖ¹£¬Ëù±»Ðí¿ÉµÄÈ¨Àû½«±»ÊÕ»Ø£¬²¢³Ðµ£ÏàÓ¦·¨ÂÉÔðÈÎ¡£
+<b>III.ÓÐÏÞµ£±£ºÍÃâÔðÉùÃ÷</b>
+1.JishiGou²úÆ·Èí¼þ¼°Ëù¸½´øµÄÎÄ¼þÊÇ×÷Îª²»Ìá¹©ÈÎºÎÃ÷È·µÄ»òÒþº¬µÄÅâ³¥»òµ£±£µÄÐÎÊ½Ìá¹©µÄ¡£
+2.ÓÃ»§³öÓÚ×ÔÔ¸¶øÊ¹ÓÃ±¾Èí¼þ£¬Äú±ØÐëÁË½âÊ¹ÓÃ±¾Èí¼þµÄ·çÏÕ£¬ÎÒÃÇ²»³ÐÅµÌá¹©ÈÎºÎÐÎÊ½µÄ¼¼ÊõÖ§³Ö¡¢Ê¹ÓÃµ£±££¬Ò²²»³Ðµ£ÈÎºÎÒòÊ¹ÓÃ±¾Èí¼þ¶ø²úÉúÎÊÌâµÄÏà¹ØÔðÈÎ¡£
+3.º¼ÖÝÉñ»°ÍøÂçÓÐÏÞ¹«Ë¾²»¶ÔÊ¹ÓÃ±¾Èí¼þ¹¹½¨µÄJishiGouÏµÍ³ÖÐµÄÐÅÏ¢³Ðµ£ÔðÈÎ¡£
+]]></item>
+</root>
