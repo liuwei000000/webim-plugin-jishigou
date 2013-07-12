@@ -92,7 +92,8 @@ webim.ui.i18n.store('zh-TW',{
 	"password": "\u5bc6\u78bc",
 	"question": "\u554f\u984c",        
 	"answer": "\u7b54\u6848",
-	"login": "\u767b\u9304"
+	"login": "\u767b\u9304",
+	"exit": "\u9000\u51fa"
 });
 
 webim.ui.i18n.store('zh-TW',{
@@ -100,9 +101,5 @@ webim.ui.i18n.store('zh-TW',{
 	"album": "\u76f8\u518a",
 	"blog": "\u65e5\u8a8c",
 	"thread": "\u7fa4\u7d44",
-	"share": "\u5206\u4eab",
-	"newtopic": "\u6700\u65b0\u5fae\u535a",
-	"newreply": "\u6700\u65b0\u8a55\u8ad6",
-	"hotreply": "\u71b1\u9580\u8a55\u8ad6",
-	"hotforward": "\u71b1\u9580\u8f49\u767c"
+	"share": "\u5206\u4eab"
 });

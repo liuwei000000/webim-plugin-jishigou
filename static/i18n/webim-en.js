@@ -92,7 +92,8 @@ webim.ui.i18n.store('en',{
 	"password": "Password",
 	"question": "Question",        
 	"answer": "Answer",
-	"login": "Login"
+	"login": "Login",
+	"exit": "Exit"
 });
 
 webim.ui.i18n.store('en',{
@@ -100,9 +101,5 @@ webim.ui.i18n.store('en',{
 	"album": "Photo",
 	"blog": "Note",
 	"thread": "Group",
-	"share": "Share",
-	"newtopic": "NewTopic",
-	"newreply": "NewReply",
-	"hotreply": "HotReply",
-	"hotforward": "HotForward"
+	"share": "Share"
 });
