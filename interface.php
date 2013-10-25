@@ -17,7 +17,7 @@
  *
  */
 
-define( 'WEBIM_PRODUCT_NAME', 'JishiGou' );
+define( 'WEBIM_PRODUCT_NAME', 'jishigou' );
 
 $_SERVER['REQUEST_URI'] = "";
 
