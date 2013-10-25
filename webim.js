@@ -5,7 +5,7 @@
 	var webim = window.webim;
 
 	webim.route( {
-		online: path + "im.php?webim_action=online&domain=webim20.cn",
+		online: path + "im.php?webim_action=online",
 		offline: path + "im.php?webim_action=offline",
 		deactivate: path + "im.php?webim_action=refresh",
 		message: path + "im.php?webim_action=message",
