@@ -2133,8 +2133,8 @@ model("history", {
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Thu Oct 17 15:29:09 2013 +0800
- * Commit: db27d4ecf8841f71e0dcbc45f005b25b1448a138
+ * Date: Sat Nov 9 16:11:32 2013 +0800
+ * Commit: 2ed4c6ec190a213dd53f43b523ca8c09be11d3e4
  */
 (function(window,document,undefined){
 
@@ -5616,6 +5616,9 @@ widget("room",{
 		};
 		self._count = 0;
 		show(self.$.empty);
+		if( !self.options.discussion )
+			hide( self.$.create );
+
 		//self._initEvents();
 	},
 	_initEvents: function(){
