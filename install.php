@@ -21,8 +21,6 @@ CREATE TABLE {jishigou}webim_histories (
 	`created_at` date DEFAULT NULL,
 	`updated_at` date DEFAULT NULL,
 	PRIMARY KEY (`id`),
-	KEY `todel` (`todel`),
-	KEY `fromdel` (`fromdel`),
 	KEY `timestamp` (`timestamp`),
 	KEY `to` (`to`),
 	KEY `from` (`from`),
@@ -32,7 +30,7 @@ CREATE TABLE {jishigou}webim_histories (
 DROP TABLE IF EXISTS {jishigou}webim_settings;
 CREATE TABLE {jishigou}webim_settings(
 	`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-	`uid` mediumint(8) unsigned NOT NULL,
+	`uid` int(8) unsigned NOT NULL,
 	`web` blob,
 	`air` blob,
 	`created_at` date DEFAULT NULL,

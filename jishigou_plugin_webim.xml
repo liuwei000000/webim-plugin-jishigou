@@ -2,13 +2,13 @@
 <root>
 	<item id="Title"><![CDATA[JishiGou! Plugin]]></item>
 	<item id="Version"><![CDATA[$SYS_VERSION$]]></item>
-	<item id="Time"><![CDATA[2013-03-22 15:48:08]]></item>
+	<item id="Time"><![CDATA[2013-11-25 10:20:08]]></item>
 	<item id="Data">
 		<item id="plugin">
 			<item id="available"><![CDATA[0]]></item>
 			<item id="name"><![CDATA[webim]]></item>
 			<item id="identifier"><![CDATA[webim]]></item>
-			<item id="description"><![CDATA[web 即时通信]]></item>
+			<item id="description"><![CDATA[站内即时消息插件]]></item>
 			<item id="directory"><![CDATA[webim/]]></item>
 			<item id="copyright"><![CDATA[cenwor]]></item>
 			<item id="version"><![CDATA[1.0]]></item>
@@ -36,9 +36,9 @@
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[11]]></item>
-				<item id="title"><![CDATA[支持从IM登录]]></item>
-				<item id="description"><![CDATA[允许未登录时显示IM，并可从im登录]]></item>
-				<item id="variable"><![CDATA[enable_login]]></item>
+				<item id="title"><![CDATA[显示通知按钮]]></item>
+				<item id="description"><![CDATA[显示通知按钮]]></item>
+				<item id="variable"><![CDATA[enable_noti]]></item>
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
@@ -54,18 +54,18 @@
 			</item>
 			<item id="2">
 				<item id="displayorder"><![CDATA[9]]></item>
-				<item id="title"><![CDATA[关闭陌生人聊天]]></item>
+				<item id="title"><![CDATA[陌生人聊天]]></item>
 				<item id="description"><![CDATA[默认会在网页在线用户旁边显示聊天链接]]></item>
-				<item id="variable"><![CDATA[disable_chatlink]]></item>
+				<item id="variable"><![CDATA[enable_chatlink]]></item>
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="3">
 				<item id="displayorder"><![CDATA[8]]></item>
-				<item id="title"><![CDATA[关闭群组聊天]]></item>
+				<item id="title"><![CDATA[群组聊天]]></item>
 				<item id="description"><![CDATA[]]></item>
-				<item id="variable"><![CDATA[disable_room]]></item>
+				<item id="variable"><![CDATA[enable_room]]></item>
 				<item id="type"><![CDATA[radio]]></item>
 				<item id="value"><![CDATA[0]]></item>
 				<item id="extra"><![CDATA[]]></item>
@@ -114,13 +114,13 @@ en = English]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[host]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[webim20.cn]]></item>
+				<item id="value"><![CDATA[nextalk.im]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="9">
 				<item id="displayorder"><![CDATA[2]]></item>
-				<item id="title"><![CDATA[注册apikey]]></item>
-				<item id="description"><![CDATA[域名对应的apikey]]></item>
+				<item id="title"><![CDATA[APIKEY]]></item>
+				<item id="description"><![CDATA[域名对应的APIKEY]]></item>
 				<item id="variable"><![CDATA[apikey]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -129,7 +129,7 @@ en = English]]></item>
 			<item id="10">
 				<item id="displayorder"><![CDATA[1]]></item>
 				<item id="title"><![CDATA[注册域名]]></item>
-				<item id="description"><![CDATA[在线版用户输入在webim20.cn中注册的域名]]></item>
+				<item id="description"><![CDATA[网站域名]]></item>
 				<item id="variable"><![CDATA[domain]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -139,8 +139,8 @@ en = English]]></item>
 	</item>
 	<item id="installfile"><![CDATA[install.php]]></item>
 	<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
-	<item id="license"><![CDATA[<b>webim是一个为JishiGou微博V4以上版本用户打造的网页版及时聊天工具（要求记事狗微博系统必须在V4.0以上版本），用户通过聊天工具栏可随即与在线好友聊天。</b>
-在线版用户安装后需要到webim20.cn注册一个apikey，配置后即可使用。更多帮助信息请访问 <a href=http://www.webim20.cn>webim20.cn</a>
+	<item id="license"><![CDATA[<b>webim是一个为JishiGou微博V4以上版本用户打造的网页版站内即时消息插件（要求记事狗微博系统必须在V4.0以上版本），用户通过聊天工具栏可随即与在线好友聊天。</b>
+在线版用户安装后需要到nextalk.im注册一个apikey，配置后即可使用。更多帮助信息请访问 <a href=http://nextalk.im>nextalk.im</a>
 <b>感谢您选择使用JishiGou产品</b>
 杭州神话网络有限公司(<i>Cenwor.com Technology Co., Ltd.</i>)为 JishiGou产品的开发商，依法独立拥有 JishiGou产品著作权。JishiGou 产品官方网站网址为 <a href=http://www.jishigou.net>www.jishigou.net</a>。
 本授权协议适用且仅适用于JishiGou产品，杭州神话网络有限公司(<i>Cenwor.com Technology Co., Ltd.</i>)拥有对本授权协议的最终解释权。

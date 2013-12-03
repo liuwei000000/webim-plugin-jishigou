@@ -6,7 +6,7 @@ if(!defined('IN_JISHIGOU'))
 class plugin_webim {
 
 	function global_footer() {
-		return '<script src="plugin/webim/custom.js.php" type="text/javascript"></script>';
+		return '<script src="plugin/webim/run.js.php" type="text/javascript"></script>';
 	}
 }
 

@@ -16,7 +16,7 @@ function webim_scan_subdir( $dir ){
 if(jget('theme')){
 	$theme = jget('theme');
 	DB::query("UPDATE ".DB::table('pluginvar')." SET value='$theme' WHERE pluginid='$pluginid' AND variable='theme'");
-	$this->Messager("Ö÷Ìâ¸üĞÂ³É¹¦£¬Äú¿ÉÒÔ¸üĞÂJishiGouÒ³Ãæ²é¿´Ğ§¹û¡£", 'admin.php?mod=plugin&code=manage&id='.$pluginid.'&identifier=webim&pmod=themes');
+	$this->Messager("ä¸»é¢˜æ›´æ–°æˆåŠŸï¼Œæ‚¨å¯ä»¥æ›´æ–°JishiGoué¡µé¢æŸ¥çœ‹æ•ˆæœã€‚", 'admin.php?mod=plugin&code=manage&id='.$pluginid.'&identifier=webim&pmod=themes');
 
 }else{
 	$res = DB::fetch_first("SELECT * FROM ".DB::table('pluginvar')." WHERE pluginid='$pluginid' AND variable='theme'");

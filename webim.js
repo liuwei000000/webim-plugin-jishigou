@@ -1,8 +1,7 @@
 //custom
 (function(webim){
 	var path = _IMC.path;
-	webim.extend(webim.setting.defaults.data, _IMC.setting );
-	var webim = window.webim;
+	webim.extend(webim.setting.defaults.data, _IMC.setting);
 
 	webim.route( {
 		online: path + "im.php?webim_action=online",
@@ -19,6 +18,7 @@
 		join: path + "im.php?webim_action=join",
 		leave: path + "im.php?webim_action=leave",
 		buddies: path + "im.php?webim_action=buddies",
+		upload: path + "static/images/upload.php",
 		notifications: path + "im.php?webim_action=notifications"
 	} );
 
@@ -31,7 +31,13 @@
 		imOptions: {
 			jsonp: _IMC.jsonp
 		},
-		soundUrls: soundUrls
+		soundUrls: soundUrls,
+		buddyChatOptions: {
+			upload: _IMC.upload
+		},
+		roomChatOptions: {
+			upload: _IMC.upload
+		}
 	}), im = ui.im;
 
 	if( _IMC.user ) im.setUser( _IMC.user );
@@ -39,13 +45,15 @@
 	if( _IMC.enable_shortcut ) ui.layout.addShortcut( _IMC.menu );
 
 	ui.addApp("buddy", {
+		showUnavailable: _IMC.showUnavailable,
 		is_login: _IMC['is_login'],
+		disable_login: true,
 		loginOptions: _IMC['login_options']
 	} );
-	ui.addApp("room");
-	ui.addApp("notification");
+	if( _IMC.enable_room )ui.addApp("room", { discussion: false}); //TODO: 
+	if( _IMC.enable_noti )ui.addApp("notification");
 	ui.addApp("setting", {"data": webim.setting.defaults.data});
-	if( !_IMC.disable_chatlink )ui.addApp("chatlink", {
+	if( _IMC.enable_chatlink )ui.addApp("chatlink", {
 		link_href: [/index.php\?mod=(\d+)$/i,/\/(\d+)$/i,/index.php\/(\d+)$/i],
 		link_class: /photo_vip_t_name/,
 		link_wrap: document.getElementById("listTopicArea")

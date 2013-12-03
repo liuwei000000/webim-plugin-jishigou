@@ -231,40 +231,40 @@ function webim_get_notifications(){
 	$member = jsg_member_info($imuser->uid);
 	$notice = array();
 	if($member['newpm']>0){
-		$notice[] = array('text'=>to_utf8($member['newpm'].'ÌõĞÂË½ĞÅ'),'link'=>jurl('index.php?mod=pm&code=list'));
+		$notice[] = array('text'=>to_utf8($member['newpm'].'æ¡æ–°ç§ä¿¡'),'link'=>jurl('index.php?mod=pm&code=list'));
 	}
 	if($member['comment_new']>0){
-		$notice[] = array('text'=>to_utf8($member['comment_new'].'ÌõĞÂÆÀÂÛ'),'link'=>jurl('index.php?mod=topic&code=mycomment'));
+		$notice[] = array('text'=>to_utf8($member['comment_new'].'æ¡æ–°è¯„è®º'),'link'=>jurl('index.php?mod=topic&code=mycomment'));
 	}
 	if($member['fans_new']>0){
-		$notice[] = array('text'=>to_utf8($member['fans_new'].'ÈË¹Ø×¢ÁËÎÒ'),'link'=>jurl('index.php?mod='.$member['username'].'&code=fans'));
+		$notice[] = array('text'=>to_utf8($member['fans_new'].'äººå…³æ³¨äº†æˆ‘'),'link'=>jurl('index.php?mod='.$member['username'].'&code=fans'));
 	}
 	if($member['at_new']>0){
-		$notice[] = array('text'=>to_utf8($member['at_new'].'ÈË@Ìáµ½ÎÒ'),'link'=>jurl('index.php?mod=topic&code=myat'));
+		$notice[] = array('text'=>to_utf8($member['at_new'].'äºº@æåˆ°æˆ‘'),'link'=>jurl('index.php?mod=topic&code=myat'));
 	}
 	if($member['dig_new']>0){
-		$notice[] = array('text'=>to_utf8('ÓĞ'.$member['dig_new'].'ÈË'.$GLOBALS['_J']['config']['changeword']['dig'].'ÁËÄã'),'link'=>jurl('index.php?mod='.$member['username'].'&type=mydig'));
+		$notice[] = array('text'=>to_utf8('æœ‰'.$member['dig_new'].'äºº'.$GLOBALS['_J']['config']['changeword']['dig'].'äº†ä½ '),'link'=>jurl('index.php?mod='.$member['username'].'&type=mydig'));
 	}
 	if($member['channel_new']>0){
-		$notice[] = array('text'=>to_utf8('ÆµµÀĞÂÔö'.$member['channel_new'].'ÌõÄÚÈİ'),'link'=>jurl('index.php?mod=topic&code=channel&orderby=post'));
+		$notice[] = array('text'=>to_utf8('é¢‘é“æ–°å¢'.$member['channel_new'].'æ¡å†…å®¹'),'link'=>jurl('index.php?mod=topic&code=channel&orderby=post'));
 	}
 	if($member['vote_new']>0){
-		$notice[] = array('text'=>to_utf8('Í¶Æ±ĞÂÔö'.$member['vote_new'].'ÈË²ÎÓë'),'link'=>jurl('index.php?mod=vote&view=me&filter=new_update&uid='.$member['uid']));
+		$notice[] = array('text'=>to_utf8('æŠ•ç¥¨æ–°å¢'.$member['vote_new'].'äººå‚ä¸'),'link'=>jurl('index.php?mod=vote&view=me&filter=new_update&uid='.$member['uid']));
 	}
 	if($member['qun_new']>0){
-		$notice[] = array('text'=>to_utf8('Î¢ÈºĞÂÔö'.$member['qun_new'].'ÌõÄÚÈİ'),'link'=>jurl('index.php?mod=topic&code=qun'));
+		$notice[] = array('text'=>to_utf8('å¾®ç¾¤æ–°å¢'.$member['qun_new'].'æ¡å†…å®¹'),'link'=>jurl('index.php?mod=topic&code=qun'));
 	}		
 	if($member['event_new']>0){
-		$notice[] = array('text'=>to_utf8('»î¶¯ĞÂÔö'.$member['event_new'].'ÈË±¨Ãû'),'link'=>jurl('index.php?mod=event&code=myevent&type=new'));
+		$notice[] = array('text'=>to_utf8('æ´»åŠ¨æ–°å¢'.$member['event_new'].'äººæŠ¥å'),'link'=>jurl('index.php?mod=event&code=myevent&type=new'));
 	}		
 	if($member['topic_new']>0){
-		$notice[] = array('text'=>to_utf8('ĞÂÔö'.$member['topic_new'].'Ìõ»°ÌâÄÚÈİ'),'link'=>jurl('index.php?mod=topic&code=tag'));
+		$notice[] = array('text'=>to_utf8('æ–°å¢'.$member['topic_new'].'æ¡è¯é¢˜å†…å®¹'),'link'=>jurl('index.php?mod=topic&code=tag'));
 	}        
 	if($member['event_post_new']>0){
-		$notice[] = array('text'=>to_utf8('ĞÂÔö'.$member['event_post_new'].'¸ö¹Ø×¢µÄ»î¶¯'),'link'=>jurl('index.php?mod=topic&code=other&view=event'));
+		$notice[] = array('text'=>to_utf8('æ–°å¢'.$member['event_post_new'].'ä¸ªå…³æ³¨çš„æ´»åŠ¨'),'link'=>jurl('index.php?mod=topic&code=other&view=event'));
 	}           	
 	if($member['fenlei_post_new']>0){
-		$notice[] = array('text'=>to_utf8('ĞÂÔö'.$member['fenlei_post_new'].'Ìõ·ÖÀàĞÅÏ¢'),'link'=>jurl('index.php?mod=topic&code=other&view=fenlei'));
+		$notice[] = array('text'=>to_utf8('æ–°å¢'.$member['fenlei_post_new'].'æ¡åˆ†ç±»ä¿¡æ¯'),'link'=>jurl('index.php?mod=topic&code=other&view=fenlei'));
 	}
 	return $notice;
 }
@@ -292,7 +292,7 @@ function complete_status( $members ) {
 		$ids = implode(",", $ids);
 		$query = DB::query("SELECT uid, fans_count, topic_count FROM ".DB::table('members')." WHERE uid IN ($ids)");
 		while($res = DB::fetch($query)) {
-			$ob[$res['uid']]->status = to_utf8('·ÛË¿:'.$res['fans_count'].'&nbsp;Î¢²©:'.$res['topic_count']);
+			$ob[$res['uid']]->status = to_utf8('ç²‰ä¸:'.$res['fans_count'].'&nbsp;å¾®åš:'.$res['topic_count']);
 		}
 	}
 	return $members;
