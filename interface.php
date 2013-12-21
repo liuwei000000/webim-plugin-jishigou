@@ -289,7 +289,7 @@ function complete_status( $members ) {
 				$ob[$id] = $m;
 			}
 		}
-		if(count($id)>0){
+		if(count($ids)>0){
 			$ids = implode(",", $ids);
 			$query = DB::query("SELECT uid, fans_count, topic_count FROM ".DB::table('members')." WHERE uid IN ($ids)");
 			while($res = DB::fetch($query)) {
