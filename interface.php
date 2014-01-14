@@ -289,10 +289,12 @@ function complete_status( $members ) {
 				$ob[$id] = $m;
 			}
 		}
-		$ids = implode(",", $ids);
-		$query = DB::query("SELECT uid, fans_count, topic_count FROM ".DB::table('members')." WHERE uid IN ($ids)");
-		while($res = DB::fetch($query)) {
-			$ob[$res['uid']]->status = to_utf8('粉丝:'.$res['fans_count'].'&nbsp;微博:'.$res['topic_count']);
+		if(count($ids)>0){
+			$ids = implode(",", $ids);
+			$query = DB::query("SELECT uid, fans_count, topic_count FROM ".DB::table('members')." WHERE uid IN ($ids)");
+			while($res = DB::fetch($query)) {
+				$ob[$res['uid']]->status = to_utf8('粉丝:'.$res['fans_count'].'&nbsp;微博:'.$res['topic_count']);
+			}
 		}
 	}
 	return $members;
