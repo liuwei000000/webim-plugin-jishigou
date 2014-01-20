@@ -8,7 +8,7 @@
 			<item id="available"><![CDATA[0]]></item>
 			<item id="name"><![CDATA[webim]]></item>
 			<item id="identifier"><![CDATA[webim]]></item>
-			<item id="description"><![CDATA[站内即时消息插件]]></item>
+			<item id="description"><![CDATA[NexTalk站内即时消息]]></item>
 			<item id="directory"><![CDATA[webim/]]></item>
 			<item id="copyright"><![CDATA[cenwor]]></item>
 			<item id="version"><![CDATA[1.0]]></item>
@@ -139,7 +139,7 @@ en = English]]></item>
 	</item>
 	<item id="installfile"><![CDATA[install.php]]></item>
 	<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
-	<item id="license"><![CDATA[<b>webim是一个为JishiGou微博V4以上版本用户打造的网页版站内即时消息插件（要求记事狗微博系统必须在V4.0以上版本），用户通过聊天工具栏可随即与在线好友聊天。</b>
+	<item id="license"><![CDATA[<b>Webim是为JishiGou微博V4以上版本用户打造的网页版站内即时消息插件（要求记事狗微博系统必须在V4.0以上版本），用户通过聊天工具栏可随即与在线好友聊天。</b>
 在线版用户安装后需要到nextalk.im注册一个apikey，配置后即可使用。更多帮助信息请访问 <a href=http://nextalk.im>nextalk.im</a>
 <b>感谢您选择使用JishiGou产品</b>
 杭州神话网络有限公司(<i>Cenwor.com Technology Co., Ltd.</i>)为 JishiGou产品的开发商，依法独立拥有 JishiGou产品著作权。JishiGou 产品官方网站网址为 <a href=http://www.jishigou.net>www.jishigou.net</a>。
