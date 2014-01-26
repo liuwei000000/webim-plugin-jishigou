@@ -33,7 +33,9 @@
 		},
 		soundUrls: soundUrls,
 		buddyChatOptions: {
-			upload: _IMC.upload
+            downloadHistory: !_IMC.is_visitor,
+			simple: _IMC.is_visitor,
+			upload: _IMC.upload && !_IMC.is_visitor
 		},
 		roomChatOptions: {
 			upload: _IMC.upload
@@ -45,19 +47,25 @@
 	if( _IMC.enable_shortcut ) ui.layout.addShortcut( _IMC.menu );
 
 	ui.addApp("buddy", {
-		showUnavailable: _IMC.showUnavailable,
+		showUnavailable: _IMC.show_unavailable,
 		is_login: _IMC['is_login'],
 		disable_login: true,
+		collapse: false,
+		disable_user: _IMC.is_visitor,
+        simple: _IMC.is_visitor,
 		loginOptions: _IMC['login_options']
 	} );
-	if( _IMC.enable_room )ui.addApp("room", { discussion: false}); //TODO: 
-	if( _IMC.enable_noti )ui.addApp("notification");
-	ui.addApp("setting", {"data": webim.setting.defaults.data});
-	if( _IMC.enable_chatlink )ui.addApp("chatlink", {
-		link_href: [/index.php\?mod=(\d+)$/i,/\/(\d+)$/i,/index.php\/(\d+)$/i],
-		link_class: /photo_vip_t_name/,
-		link_wrap: document.getElementById("listTopicArea")
-	});
+
+    if(!_IMC.is_visitor) {
+        if( _IMC.enable_room )ui.addApp("room", { discussion: false}); //TODO: 
+        if( _IMC.enable_noti )ui.addApp("notification");
+        if( _IMC.enable_chatlink )ui.addApp("chatlink", {
+            link_href: [/index.php\?mod=(\d+)$/i,/\/(\d+)$/i,/index.php\/(\d+)$/i],
+            link_class: /photo_vip_t_name/,
+            link_wrap: document.getElementById("listTopicArea")
+        });
+    }
+    ui.addApp("setting", {"data": webim.setting.defaults.data});
 	ui.render();
 	_IMC['is_login'] && im.autoOnline() && im.online();
 })(webim);
