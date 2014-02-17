@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS {jishigou}webim_settings;
 CREATE TABLE {jishigou}webim_settings(
 	`id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
 	`uid` int(11) unsigned NOT NULL,
-	`data` blob,
+	`data` text,
 	`created_at` date DEFAULT NULL,
 	`updated_at` date DEFAULT NULL,
 	PRIMARY KEY (`id`) 

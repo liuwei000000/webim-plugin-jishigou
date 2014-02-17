@@ -17,19 +17,19 @@
 					<item id="modtype"><![CDATA[4]]></item>
 					<item id="mod_file"><![CDATA[themes]]></item>
 					<item id="mod_name"><![CDATA[主题选择]]></item>
-					<item id="role_id"><![CDATA[7]]></item>
+					<item id="role_id"><![CDATA[1]]></item>
 				</item>
 				<item id="1">
 					<item id="modtype"><![CDATA[5]]></item>
 					<item id="mod_file"><![CDATA[webim]]></item>
 					<item id="mod_name"><![CDATA[]]></item>
-					<item id="role_id"><![CDATA[all]]></item>
+					<item id="role_id"><![CDATA[0]]></item>
 				</item>
 				<item id="2">
 					<item id="modtype"><![CDATA[4]]></item>
 					<item id="mod_file"><![CDATA[histories]]></item>
 					<item id="mod_name"><![CDATA[聊天记录]]></item>
-					<item id="role_id"><![CDATA[7]]></item>
+					<item id="role_id"><![CDATA[1]]></item>
 				</item>
 			</item>
 		</item>
