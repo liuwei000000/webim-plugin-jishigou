@@ -1,12 +1,12 @@
 /*!
- * Webim v5.2
+ * Webim v5.3
  * http://www.webim20.cn/
  *
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Sun Jan 26 21:19:29 2014 +0800
- * Commit: cc528aeb68260efa8f0c65fea9b835e35bdae3b9
+ * Date: Thu Feb 20 12:08:45 2014 +0800
+ * Commit: bcbb5a54e8a0cb03ae3930a572056bdb69a22ff6
  */
 (function(window, document, undefined){
 
@@ -292,6 +292,11 @@ function ajax( origSettings ) {
 		for( var key in origSettings ) {
 			s[ key ] = origSettings[ key ];
 		}
+	}
+
+	//Only GET when jsonp
+	if( s.dataType === "jsonp" ) {
+		s.type = "GET";
 	}
 
 	var jsonp, status, data, type = s.type.toUpperCase(), noContent = rnoContent.test(type), head, proxy, win = window, script;
@@ -1621,7 +1626,7 @@ function route( ob, val ) {
 window.webim = webim;
 
 extend( webim, {
-	version: "5.2",
+	version: "5.3",
 	defaults:{
 	},
 	log: log,
@@ -2164,8 +2169,8 @@ model("history", {
  * Copyright (c) 2013 Arron
  * Released under the MIT, BSD, and GPL Licenses.
  *
- * Date: Sun Jan 26 09:06:04 2014 +0800
- * Commit: 91fdef4db32b019f10691244a9919a31ac810410
+ * Date: Thu Mar 6 21:41:58 2014 +0800
+ * Commit: 7b3ccf0e31046bc30f01954ecad2b4eb0ed3c48e
  */
 (function(window,document,undefined){
 
@@ -2650,7 +2655,7 @@ var sound = (function(){
 		init: function(urls){
 			extend(_urls, urls);
 			if(!window.Audio && navigator.userAgent.indexOf('MSIE') >= 0){
-				document.getElementById('webim-flashlib-c').innerHTML = '<bgsound id="webim-bgsound" src="#" loop="1">';
+				document.getElementById('webim-flashlib-c').innerHTML = '<bgsound id="webim-bgsound" src="#" autostart="true" loop="1">';
 			}
 			/*
 			 swfobject.embedSWF(_urls.lib + "?_" + new Date().getTime(), "webim-flashlib-c", "100", "100", "9.0.0", null, null, {
@@ -6134,6 +6139,168 @@ widget("chatlink",
 		each(this.list, function(k, v){
 			v.elements && each(v.elements, function(n, el){
 				remove(el);
+			});
+		});
+	}
+}
+);
+/* 
+ * ui.chatbtn
+ *
+ * HTML页面:
+ * <a class="webim-chatbtn" href="/chat/2">和我聊天</a>
+ *
+ * webim.$product.js:
+ *
+ * ui.addApp("chatbtn", {
+ *  wrap: document.getElementById('wrap')
+ *	elementId: null,
+ * 	className: /webim-chatbtn/,
+ *  autoInsertlink: true
+ * });
+ * 
+ * TODO: 支持群组Link
+ *
+ * options:
+ * methods:
+ * 	on(buddies)
+ * 	off(buddies)
+ * 	idsArray()
+ * 	offAll()
+ * 	destroy()
+ * 
+ * events: 
+ * 	select
+ * 
+ */
+
+app("chatbtn", function(options){
+	var ui = this, im = ui.im;
+	var chatbtn = ui.chatbtn = new webim.ui.chatbtn(null, options).bind("select", function(e, id){
+		ui.im.online();
+        id = id.substr("webim-chatid-".length);
+		ui.layout.addChat("buddy", id);
+		ui.layout.focusChat("buddy", id);
+		if( options && options.autoInsertlink ) {
+			var chat = ui.layout.chat( "buddy", id );
+			chat && chat.insert( window.location.href );
+		}
+	});
+	var grepVisible = function(a){ return a.show != "invisible" && a.presence == "online"};
+	var grepInvisible = function(a){ return a.show == "invisible" };
+	im.buddy.bind("online",function(e, data){
+		chatbtn.on(grep(data, grepVisible));
+	}).bind("update",function(e, data){
+		chatbtn.on(grep(data, grepVisible));
+		chatbtn.off(grep(data, grepInvisible));
+	}).bind("offline",function(e, data){
+		chatbtn.off(data);
+	});
+
+	im.bind("beforeOnline", function( e, params ){
+		params.stranger_ids = chatbtn.idsArray();
+	}).bind("online", function(e){
+		chatbtn.off(im.data.user);
+	}).bind("offline", function(e){
+		chatbtn.offAll();
+	});
+});
+
+widget("chatbtn",
+{
+	wrap: null,
+	re_id: [/chat\/([^\/]+)/i],
+	elementId: null,
+	className: /webim-chatbtn/
+},
+{
+	_init: function(){
+		var self = this, element = self.element, list = self.list = {}, 
+			options = self.options, anthors = self.anthors = {}, 
+			re_id = options.re_id, 
+			elementId = options.elementId, 
+			className = options.className,
+			wrap = options.wrap || document;
+
+		function parse_id(link, re){
+			if(!link)return false;
+			if(!re)return false;
+			var re_len = re.length; 
+			for(var i = 0; i < re_len; i++){
+				var ex = re[i].exec(link);
+				if(ex && ex[1]){
+					return ex[1];
+				}
+			}
+			return false;
+		}
+		var a, b;
+		if( elementId ) {
+			a = document.getElementById( elementId );
+			a = a ? [ a ] : null;
+		} else {
+			a = wrap.getElementsByTagName("a");
+		}
+		a && each(a, function(i, el){
+			var id = parse_id(el.href, re_id), text = el.innerHTML;
+			if(id && children(el).length == 0 && text && (elementId || className.test(el.className))){
+				anthors[id] ? anthors[id].push(el) :(anthors[id] = [el]);
+				list[id] = {id: id, name: text};
+				var icon = createElement('<i class="webim-chaticon"><em>');;
+				el.appendChild( icon );
+				el.icon = icon;
+				el.title = i18n("offline");
+				el.id = 'webim-chatid-' + id;
+				addEvent(el, "click", function(e){
+					self.trigger("select", this.id);
+					stopPropagation(e);
+					preventDefault(e);
+				});
+			}
+		});
+	},
+	idsArray: function(){
+		var _ids = [];
+		each(this.list, function(k,v){_ids.push(k)});
+		return _ids;
+	},
+	on: function(data){
+		var self = this, list = self.list, anthors = self.anthors, l = data.length, i, da, uid, li, anthor;
+		for(i = 0; i < l; i++){
+			da = data[i];
+			if(da.id && (uid = da.uid || da.id) && (li = list[uid])){
+				anthor = anthors[uid];
+				if(anthor){
+					for(var j = 0; j < anthor.length; j++){
+						var el = anthor[j];
+						el && el.icon && addClass( el.icon, "webim-chaticon-online");
+						el && ( el.title = i18n("available") );
+					}
+				}
+			}
+		}
+	},
+	off: function(data){
+		var self = this, list = self.list, anthors = self.anthors, l = data.length, i, da, uid, li, anthor;
+		for(i = 0; i < l; i++){
+			da = data[i];
+			if(da.id && (uid = da.uid || da.id) && (li = list[uid])){
+				anthor = anthors[uid];
+				if(anthor){
+					for(var j = 0; j < anthor.length; j++){
+						var el = anthor[j];
+						el && el.icon && removeClass( el.icon, "webim-chaticon-online");
+						el && ( el.title = i18n("unavailable") );
+					}
+				}
+			}
+		}
+	},
+	offAll: function(){
+		each(this.anthors, function(k, v){
+			v && each(v, function(n, el){
+				el && el.icon && removeClass( el.icon, "webim-chaticon-online");
+				el && ( el.title = i18n("unavailable") );
 			});
 		});
 	}
