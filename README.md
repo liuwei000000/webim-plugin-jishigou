@@ -16,7 +16,7 @@ WebIM For JishiGou V4
 
 1.	解压安装包到JishiGou插件目录plugin/
 2.	登录JishiGou管理后台安装新插件webim
-3.	在配置中设置在webim20.cn注册的域名和apikey
+3.	在配置中设置在nextalk.im注册的域名和apikey
 4.	启用插件
 
 升级
@@ -28,4 +28,5 @@ WebIM For JishiGou V4
 感谢
 ====
 
-http://jishigou.net/
+[NexTalk.IM](http://nextalk.im/)
+[JishiGou](http://jishigou.net/)
