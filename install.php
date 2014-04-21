@@ -36,5 +36,7 @@ CREATE TABLE {jishigou}webim_settings(
 	`updated_at` date DEFAULT NULL,
 	PRIMARY KEY (`id`) 
 )ENGINE=MyISAM;
+
 EOF;
+
 ?>

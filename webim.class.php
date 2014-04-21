@@ -1,12 +1,12 @@
 <?php
-if(!defined('IN_JISHIGOU'))
-{
-    exit('invalid request');
-}
+
+defined('IN_JISHIGOU') or exit('invalid request');
+
 class plugin_webim {
 
 	function global_footer() {
-		return '<script src="plugin/webim/boot.js.php" type="text/javascript"></script>';
+		return '<script src="plugin/webim/index.php?action=boot" type="text/javascript"></script>';
 	}
+
 }
 

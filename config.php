@@ -1,34 +1,35 @@
 <?php
-
-$_IMC = array();
-$_IMC["version"] = "@VERSION";//版本
-$_IMC["enable"] = true;//开启webim
-$_IMC["domain"] = "";//网站注册域名
-$_IMC["apikey"] = "";//网站注册apikey
-$_IMC["host"] = "nextalk.im";//im服务器
-$_IMC["port"] = 8000;//服务端接口端口
-$_IMC["theme"] = "base";//界面主题，根据webim/static/themes/目录内容选择
-$_IMC["local"] = "zh-CN";//本地语言，扩展请修改webim/static/i18n/内容
-$_IMC["show_realname"] = false;//是否显示好友真实姓名
-$_IMC["enable_room"] = false;//禁止群组聊天
-$_IMC["enable_chatlink"] = false;//禁止页面名字旁边的聊天链接
-$_IMC["enable_shortcut"] = false;//支持工具栏快捷方式
-$_IMC["emot"] = "default";//表情主题
-$_IMC["opacity"] = 80;//toolbar背景透明度设置
-$_IMC['enable_menu'] = false; //隐藏工具条
-$_IMC['enable_login'] = false; //允许未登录时显示IM，并可从im登录
-$_IMC["host_from_domain"] = false; //设定im服务器为访问域名,当独立部署时,公网内网同时访问时用
-$_IMC['upload'] = false; //是否支持文件(图片)上传
-$_IMC['show_unavailable'] = false; //支持显示不在线用户
-$_IMC['visitor'] = false; //支持访客聊天(默认好友为站长),开启后通过im登录无效
-$_IMC["enable_noti"] = false;//禁止通知
+$IMC = array();
+$IMC["version"] = "@VERSION";//版本
+$IMC["debug"] = true;
+$IMC["isopen"] = true;//开启webim
+$IMC["domain"] = "";//网站注册域名
+$IMC["apikey"] = "";//网站注册apikey
+$IMC["host"] = "t.nextalk.im";//im服务器
+$IMC["port"] = 8000;//服务端接口端口
+$IMC["theme"] = "base";//界面主题，根据webim/static/themes/目录内容选择
+$IMC["local"] = "zh-CN";//本地语言，扩展请修改webim/static/i18n/内容
+$IMC["emot"] = "default";//表情主题
+$IMC["opacity"] = 80;//toolbar背景透明度设置
+$IMC["show_realname"] = false;//是否显示好友真实姓名
+$IMC["enable_room"] = false;//禁止群组聊天
+$IMC['discussion'] = false; 
+$IMC["enable_chatlink"] = false;//禁止页面名字旁边的聊天链接
+$IMC["enable_shortcut"] = false;//支持工具栏快捷方式
+$IMC['enable_menu'] = false; //工具条
+$IMC["enable_noti"] = true;//通知
+$IMC['enable_login'] = false; //允许未登录时显示IM，并可从im登录
+$IMC['visitor'] = false; //支持访客聊天(默认好友为站长),开启后通过im登录无效
+$IMC['upload'] = false; //是否支持文件(图片)上传
+$IMC['show_unavailable'] = false; //支持显示不在线用户
+$IMC['admin_as_buddy'] = false; 
 
 $query = DB::query("SELECT v.* FROM ".DB::table('pluginvar')." v, 
 	".DB::table('plugin')." p 
 	WHERE p.identifier='webim' AND v.pluginid = p.pluginid");
 while($var = DB::fetch($query)){
 	if(!empty($var['value'])){
-		$_IMC[$var['variable']] = $var['value'];
+		$IMC[$var['variable']] = $var['value'];
 	}
 }
 
