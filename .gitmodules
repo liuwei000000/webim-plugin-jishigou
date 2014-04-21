@@ -1,0 +1,4 @@
+[submodule "lib"]
+	path = lib
+	url = https://github.com/webim/webim-for-php4.git
+	branch = master
