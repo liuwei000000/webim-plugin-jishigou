@@ -1,8 +1,7 @@
 <?php
-if(!defined('IN_JISHIGOU'))
-{
-    exit('invalid request');
-}
+
+defined('IN_JISHIGOU') or exit('invalid request');
+
 function webim_scan_subdir( $dir ){
 	$d = dir( $dir."/" );
 	$dn = array();

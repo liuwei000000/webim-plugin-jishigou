@@ -1,9 +1,17 @@
 <?php
-if(!defined('IN_JISHIGOU'))
-{
-    exit('invalid request');
-}
-require_once( dirname( __FILE__ ) . '/' . 'common.php' );
+
+defined('IN_JISHIGOU') or exit('invalid request');
+
+//require_once( dirname( __FILE__ ) . '/' . 'common.php' );
+require 'env.php';
+require 'lib/webim_db.class.php';
+
+define(WEBIMDB_DEBUG, true);
+
+$_dbcfg = $GLOBALS['_J']['config'];
+$imdb = new webim_db($_dbcfg['db_user'], $_dbcfg['db_pass'], $_dbcfg['db_name'], $_dbcfg['db_host']);
+$imdb->set_prefix($_dbcfg['db_table_prefix'] . 'webim_');
+$imdb->add_tables( array('histories') );
 
 $notice = "";
 
