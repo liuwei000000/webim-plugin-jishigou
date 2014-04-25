@@ -2,7 +2,66 @@
 
 /**
  * WebIM Plugin for JishiGou
-/**
+ */
+class webim_plugin_jishigou extends webim_plugin {
+
+	/*
+	 * constructor
+	 */
+    function __construct() {
+        parent::__construct();
+    }
+
+	/*
+	 * old constructor
+	 */
+    function webim_plugin_jishigou() {
+        $this->__construct();
+    }
+
+    function user() {
+        global $GLOBALS, $IMC;
+        $uid = $GLOBALS['_J']['uid'];
+        if(!$uid) return null;
+
+        $user = array();
+        $user['nick'] = $this->to_utf8( $GLOBALS['_J']['nickname'] );
+        if( $IMC['show_realname'] ) {
+            $data = DB::fetch_first("SELECT validate_true_name FROM ".DB::table('memberfields')." WHERE uid = '$uid'");
+            if( $data && $data['validate_true_name'] )
+                $user['nick'] = $data['validate_true_name'];
+        }
+        $user['pic_url'] = face_get($uid);
+        $user['default_pic_url'] = $GLOBALS['_J']['site_url'] . '/images/noavatar.gif';
+        $user['url'] = $this->profile_url( $uid );
+        $user = (object)$user;
+        $this->complete_status( array( $user ) );
+        return $user;
+    }
+
+    function buddies($uid) {
+        global $GLOBALS;
+        $buddies = array();
+        $query = DB::query("SELECT s.uid, m.username, m.nickname, f.validate_true_name name, b.touid gid FROM ".DB::table('sessions')." s
+            LEFT JOIN ".DB::table('members')." m ON m.uid = s.uid 
+            LEFT JOIN ".DB::table('memberfields')." f ON f.uid = m.uid 
+            LEFT JOIN ".DB::table(jtable('buddy_follow')->table_name($uid))." b ON b.touid = s.uid AND b.uid = '$uid'
+            WHERE s.uid <> '$uid'");
+        while ($value = DB::fetch($query)){
+            $buddy[] = (object)array(
+                "id" => $value['uid'],
+                "nick" => $this->nick($value),
+                "group" => $value['gid'] ? '' : 'stranger',
+                "url" => $this->profile_url( $value['username'] ),
+                "pic_url" => face_get($value['uid']),
+                'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
+            );
+        }
+        $this->complete_status( $buddies);
+        return $buddies;
+    }
+
+    /**
      * buddies list from given ids
      * $ids:
      *
@@ -81,7 +140,7 @@
         return array();
     }
 
-    function menu() {
+    function menu($uid) {
         global $GLOBALS;
         return array(
             array("title" => 'newtopic',"icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mygroup_icon.jpg","link" => jurl('index.php?mod=topic&code=new')),

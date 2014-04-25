@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[JishiGou! Plugin]]></item>
 	<item id="Version"><![CDATA[$SYS_VERSION$]]></item>
-	<item id="Time"><![CDATA[2013-11-25 10:20:08]]></item>
+	<item id="Time"><![CDATA[2014-04-25 10:20:08]]></item>
 	<item id="Data">
 		<item id="plugin">
 			<item id="available"><![CDATA[0]]></item>
@@ -11,7 +11,7 @@
 			<item id="description"><![CDATA[NexTalk站内即时消息]]></item>
 			<item id="directory"><![CDATA[webim/]]></item>
 			<item id="copyright"><![CDATA[cenwor]]></item>
-			<item id="version"><![CDATA[1.0]]></item>
+			<item id="version"><![CDATA[5.4]]></item>
 			<item id="__modules">
 				<item id="0">
 					<item id="modtype"><![CDATA[4]]></item>

@@ -13,15 +13,9 @@ if (version_compare( PHP_VERSION, '4.3', '<' ) ) {
 	die( sprintf( 'Your server is running PHP version %s but webim requires at least 4.3', PHP_VERSION ) );
 }
 
-require 'env.php';
-
-require 'config.php';
-
-if( !$IMC['isopen'] ) exit('WebIM Not Opened');
-
 /**
  * -----------------------
- * integrated with jishgou
+ * integrated with jishigou
  * -----------------------
  */
 define( 'DISABLEXSSCHECK', true );
@@ -34,6 +28,12 @@ if ( !defined('IN_JISHIGOU') ) {
 	$jishigou->init_user = true;
 	$jishigou->init();
 }
+
+require 'env.php';
+
+require 'config.php';
+
+if( !$IMC['isopen'] ) exit('WebIM Not Opened');
 
 $IMC['dbuser'] = $GLOBALS['_J']['config']['db_user'];
 $IMC['dbpassword'] = $GLOBALS['_J']['config']['db_pass'];
@@ -60,15 +60,9 @@ function WEBIM_IMAGE($img) {
     return WEBIM_PATH() . "static/images/{$img}";
 }
 
-if($IMC['debug']) {
-    define(WEBIM_DEBUG, true);
-} else {
-    define(WEBIM_DEBUG, false);
-}
-
 // Modify error reporting levels to exclude PHP notices
-if( WEBIM_DEBUG ) {
-	error_reporting( -1 );
+if( defined('WEBIM_DEBUG') && WEBIM_DEBUG ) {
+	error_reporting( E_ALL );
 } else {
 	error_reporting( E_ALL & ~E_NOTICE & ~E_STRICT );
 }
@@ -99,4 +93,5 @@ $app->model(new webim_model());
 $app->run();
 
 ?>
+
 

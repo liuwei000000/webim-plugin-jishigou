@@ -1,19 +1,18 @@
 <?php
 $IMC = array();
 $IMC["version"] = "@VERSION";//版本
-$IMC["debug"] = true;
 $IMC["isopen"] = true;//开启webim
 $IMC["domain"] = "";//网站注册域名
 $IMC["apikey"] = "";//网站注册apikey
-$IMC["host"] = "t.nextalk.im";//im服务器
-$IMC["port"] = 8000;//服务端接口端口
+$IMC["host"] = "t.nextalk.im";//IM服务器
+$IMC["port"] = 8000;//IM Port
 $IMC["theme"] = "base";//界面主题，根据webim/static/themes/目录内容选择
 $IMC["local"] = "zh-CN";//本地语言，扩展请修改webim/static/i18n/内容
 $IMC["emot"] = "default";//表情主题
 $IMC["opacity"] = 80;//toolbar背景透明度设置
 $IMC["show_realname"] = false;//是否显示好友真实姓名
-$IMC["enable_room"] = false;//禁止群组聊天
-$IMC['discussion'] = false; 
+$IMC["enable_room"] = true;//禁止群组聊天
+$IMC['discussion'] = true; 
 $IMC["enable_chatlink"] = false;//禁止页面名字旁边的聊天链接
 $IMC["enable_shortcut"] = false;//支持工具栏快捷方式
 $IMC['enable_menu'] = false; //工具条

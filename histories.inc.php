@@ -29,7 +29,7 @@ if(jget('period')){
 	}
 	$ago = ( time() - $ago ) * 1000;
 	$imdb->query( $imdb->prepare( "DELETE FROM $imdb->webim_histories WHERE `timestamp` < %s", $ago ) );
-	$this->Messager("记录清空成功", 'admin.php?mod=plugin&code=manage&id='.$pluginid.'&identifier=webim&pmod=histories');
+	$this->Messager("璁板綍娓呯┖鎴愬姛", 'admin.php?mod=plugin&code=manage&id='.$pluginid.'&identifier=webim&pmod=histories');
 }
 
 $count = $imdb->get_var( $imdb->prepare( "SELECT count(*) FROM $imdb->webim_histories" ) );

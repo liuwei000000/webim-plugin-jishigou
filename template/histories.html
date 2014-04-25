@@ -2,18 +2,18 @@
 <table cellspacing="1" width="100%" align="center" class="tableborder tl">
 	<form name="cpform" method="post" autocomplete="off" action="{$action}" id="cpform">
 	<tr class="header">
-		<td>�����¼����</td>
+		<td>聊天记录清理</td>
 	</tr>
-	<tr><td>��վĿǰ�����¼������{$count}��.</td></tr>
+	<tr><td>网站目前聊天记录条数：{$count}条.</td></tr>
 	<tr><td>
 	<select name="period">
-	<option value="all">�������������¼</option>
-	<option value="weekago">����һ��ǰ�ļ�¼</option>
-	<option value="monthago">����һ����ǰ�ļ�¼</option>
-	<option value="3monthago">����������ǰ�ļ�¼</option>
+	<option value="all">清理所有聊天记录</option>
+	<option value="weekago">清理一周前的记录</option>
+	<option value="monthago">清理一个月前的记录</option>
+	<option value="3monthago">清理三个月前的记录</option>
 	</select>
 	</td></tr>
-	<tr><td><input type="submit" class="button" id="submit_submit" name="submit" title="�� Enter ������ʱ�ύ�����޸�" value="�ύ"></td></tr>
+	<tr><td><input type="submit" class="button" id="submit_submit" name="submit" title="按 Enter 键可随时提交您的修改" value="提交"></td></tr>
 	</form>
 </table>
 </div>
