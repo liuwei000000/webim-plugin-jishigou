@@ -11,7 +11,7 @@
 			<item id="description"><![CDATA[NexTalk站内即时消息]]></item>
 			<item id="directory"><![CDATA[webim/]]></item>
 			<item id="copyright"><![CDATA[cenwor]]></item>
-			<item id="version"><![CDATA[5.4]]></item>
+			<item id="version"><![CDATA[@VERSION]]></item>
 			<item id="__modules">
 				<item id="0">
 					<item id="modtype"><![CDATA[4]]></item>

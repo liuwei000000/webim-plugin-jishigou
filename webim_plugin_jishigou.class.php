@@ -22,9 +22,10 @@ class webim_plugin_jishigou extends webim_plugin {
     function user() {
         global $GLOBALS, $IMC;
         $uid = $GLOBALS['_J']['uid'];
-        if(!$uid) return null;
+        if( !$uid ) return null;
 
         $user = array();
+        $user['id'] = $uid;
         $user['nick'] = $this->to_utf8( $GLOBALS['_J']['nickname'] );
         if( $IMC['show_realname'] ) {
             $data = DB::fetch_first("SELECT validate_true_name FROM ".DB::table('memberfields')." WHERE uid = '$uid'");
@@ -34,7 +35,7 @@ class webim_plugin_jishigou extends webim_plugin {
         $user['pic_url'] = face_get($uid);
         $user['default_pic_url'] = $GLOBALS['_J']['site_url'] . '/images/noavatar.gif';
         $user['url'] = $this->profile_url( $uid );
-        $user = (object)$user;
+        $user = (object) $user;
         $this->complete_status( array( $user ) );
         return $user;
     }
@@ -42,13 +43,14 @@ class webim_plugin_jishigou extends webim_plugin {
     function buddies($uid) {
         global $GLOBALS;
         $buddies = array();
-        $query = DB::query("SELECT s.uid, m.username, m.nickname, f.validate_true_name name, b.touid gid FROM ".DB::table('sessions')." s
+        $sql = "SELECT s.uid, m.username, m.nickname, f.validate_true_name name, b.touid gid FROM ".DB::table('sessions')." s
             LEFT JOIN ".DB::table('members')." m ON m.uid = s.uid 
             LEFT JOIN ".DB::table('memberfields')." f ON f.uid = m.uid 
             LEFT JOIN ".DB::table(jtable('buddy_follow')->table_name($uid))." b ON b.touid = s.uid AND b.uid = '$uid'
-            WHERE s.uid <> '$uid'");
+            WHERE s.uid <> '$uid'";
+        $query = DB::query($sql);
         while ($value = DB::fetch($query)){
-            $buddy[] = (object)array(
+            $buddies[] = (object)array(
                 "id" => $value['uid'],
                 "nick" => $this->nick($value),
                 "group" => $value['gid'] ? '' : 'stranger',
@@ -62,7 +64,7 @@ class webim_plugin_jishigou extends webim_plugin {
     }
 
     /**
-     * buddies list from given ids
+     * buddies from given ids
      * $ids:
      *
      * Example:
@@ -76,17 +78,14 @@ class webim_plugin_jishigou extends webim_plugin {
         foreach($ids as $id) {
             if( !webim_isvid($id) ) $uids[] = $id;
         }
-        if( count($uids) === 0) return array();
+        if( count($uids) === 0 ) return array();
         $buddies  = array();
-
-        $where_in = 'm.uid IN (' . implode(',', $uids) . ')';
-
+        $ids = implode(',', $uids);
         $query = DB::query("SELECT m.uid, m.username, m.nickname, f.validate_true_name name FROM ".DB::table('members')." m 
 		LEFT JOIN ".DB::table('memberfields')." f ON f.uid = m.uid AND m.uid <> $uid 
-		WHERE m.uid <> $uid AND $where_in");
-
+		WHERE m.uid <> $uid AND m.uid IN ({$ids})");
         while ( $value = DB::fetch( $query ) ){
-            $list[] = (object)array(
+            $buddies[] = (object) array(
                 "id" => $value['uid'],
                 "nick" => $this->nick($value),
                 "group" => "friend",
@@ -109,7 +108,7 @@ class webim_plugin_jishigou extends webim_plugin {
     }
 
     /**
-     * Get room list
+     * Get rooms by ids 
      * $ids: Get all imuser rooms if not given.
      *
      */
@@ -136,17 +135,24 @@ class webim_plugin_jishigou extends webim_plugin {
     }
 
     function members($room) {
-        //TODO:
-        return array();
+        $query = DB::query("SELECT uid, username FROM " . DB::table('qun_user') . " WHERE qid = $room");
+        $members = array();
+        where( $value = DB::fetch($query) ) {
+            $members[] = (object)array(
+                'id'   =>  $value['uid'],
+                'nick' =>  $value['username'],
+            );
+        }
+        return $members;
     }
 
     function menu($uid) {
         global $GLOBALS;
         return array(
-            array("title" => 'newtopic',"icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mygroup_icon.jpg","link" => jurl('index.php?mod=topic&code=new')),
-            array("title" => 'newreply',"icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mychannelb_icon.jpg","link" => jurl('index.php?mod=topic&code=newreply')),
-            array("title" => 'hotreply',"icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/live_icon.jpg","link" => jurl('index.php?mod=topic&code=hotreply')),
-            array("title" => 'hotforward',"icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/left_define_icon.png","link" => jurl('index.php?mod=topic&code=hotforward'))
+            array("title" => 'newtopic', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mygroup_icon.jpg","link" => jurl('index.php?mod=topic&code=new')),
+            array("title" => 'newreply', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mychannelb_icon.jpg","link" => jurl('index.php?mod=topic&code=newreply')),
+            array("title" => 'hotreply', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/live_icon.jpg","link" => jurl('index.php?mod=topic&code=hotreply')),
+            array("title" => 'hotforward', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/left_define_icon.png","link" => jurl('index.php?mod=topic&code=hotforward'))
         );
     }
 
@@ -198,7 +204,7 @@ class webim_plugin_jishigou extends webim_plugin {
     /**
      * Add status to member info.
      *
-     * @param array $members the member list
+     * @param array $members the member
      * @return 
      *
      */
@@ -252,5 +258,6 @@ class webim_plugin_jishigou extends webim_plugin {
         return $chs->Convert( $s );
     }
 
-
 }
+
+
