@@ -47,7 +47,7 @@ class webim_plugin_jishigou extends webim_plugin {
             LEFT JOIN ".DB::table('members')." m ON m.uid = s.uid 
             LEFT JOIN ".DB::table('memberfields')." f ON f.uid = m.uid 
             LEFT JOIN ".DB::table(jtable('buddy_follow')->table_name($uid))." b ON b.touid = s.uid AND b.uid = '$uid'
-            WHERE s.uid <> '$uid'";
+            WHERE s.uid <> '$uid' and s.uid <> 0";
         $query = DB::query($sql);
         while ($value = DB::fetch($query)){
             $buddies[] = (object)array(
