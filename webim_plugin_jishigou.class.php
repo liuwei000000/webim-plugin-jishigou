@@ -135,12 +135,14 @@ class webim_plugin_jishigou extends webim_plugin {
     }
 
     function members($room) {
-        $query = DB::query("SELECT uid, username FROM " . DB::table('qun_user') . " WHERE qid = $room");
+        $query = DB::query("SELECT q.uid, m.nickname FROM " . DB::table('qun_user') . " q
+            LEFT JOIN " . DB::table('members') . " m ON q.uid = m.uid 
+            WHERE qid = $room");
         $members = array();
         while( $value = DB::fetch($query) ) {
             $members[] = (object)array(
                 'id'   =>  $value['uid'],
-                'nick' =>  $value['username'],
+                'nick' =>  $value['nickname'],
             );
         }
         return $members;
