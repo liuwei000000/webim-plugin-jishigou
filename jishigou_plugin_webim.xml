@@ -136,7 +136,7 @@ en = English]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="11">
-				<item id="displayorder"><![CDATA[11]]></item>
+				<item id="displayorder"><![CDATA[12]]></item>
 				<item id="title"><![CDATA[临时讨论组]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[discussion]]></item>
@@ -145,7 +145,7 @@ en = English]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="12">
-				<item id="displayorder"><![CDATA[12]]></item>
+				<item id="displayorder"><![CDATA[13]]></item>
 				<item id="title"><![CDATA[显示离线好友]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[show_unavailable]]></item>
