@@ -137,7 +137,7 @@ class webim_plugin_jishigou extends webim_plugin {
     function members($room) {
         $query = DB::query("SELECT uid, username FROM " . DB::table('qun_user') . " WHERE qid = $room");
         $members = array();
-        where( $value = DB::fetch($query) ) {
+        while( $value = DB::fetch($query) ) {
             $members[] = (object)array(
                 'id'   =>  $value['uid'],
                 'nick' =>  $value['username'],
