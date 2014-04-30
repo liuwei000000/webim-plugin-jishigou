@@ -26,7 +26,7 @@ class webim_plugin_jishigou extends webim_plugin {
 
         $user = array();
         $user['id'] = $uid;
-        $user['nick'] = $this->to_utf8( $GLOBALS['_J']['nickname'] );
+        $user['nick'] = webim_to_utf8(strtoupper(CHARSET), $GLOBALS['_J']['nickname'] );
         if( $IMC['show_realname'] ) {
             $data = DB::fetch_first("SELECT validate_true_name FROM ".DB::table('memberfields')." WHERE uid = '$uid'");
             if( $data && $data['validate_true_name'] )
@@ -34,7 +34,7 @@ class webim_plugin_jishigou extends webim_plugin {
         }
         $user['pic_url'] = face_get($uid);
         $user['default_pic_url'] = $GLOBALS['_J']['site_url'] . '/images/noavatar.gif';
-        $user['url'] = $this->profile_url( $uid );
+        $user['url'] = jurl('index.php?mod=' . $uid);
         $user = (object) $user;
         $this->complete_status( array( $user ) );
         return $user;
@@ -54,7 +54,7 @@ class webim_plugin_jishigou extends webim_plugin {
                 "id" => $value['uid'],
                 "nick" => $this->nick($value),
                 "group" => $value['gid'] ? '' : 'stranger',
-                "url" => $this->profile_url( $value['username'] ),
+                "url" => jurl('index.php?mod=' . $value['username']),
                 "pic_url" => face_get($value['uid']),
                 'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
             );
@@ -89,7 +89,7 @@ class webim_plugin_jishigou extends webim_plugin {
                 "id" => $value['uid'],
                 "nick" => $this->nick($value),
                 "group" => "friend",
-                "url" => $this->profile_url($value['username']),
+                "url" => jurl('index.php?mod=' . $value['username']),
                 "pic_url" => face_get($value['uid']),
                 'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
             );
@@ -122,7 +122,7 @@ class webim_plugin_jishigou extends webim_plugin {
         while ($value = DB::fetch($query)){
             $rooms[] = (object)array(
                 "id" => $value['qid'],
-                "nick" => $value['name'],
+                "nick" => webim_to_utf8(strtoupper(CHARSET), $value['name']),
                 "url" => jurl('index.php?mod=qun&qid='.$value['qid']),
                 "pic_url" => $GLOBALS['_J']['site_url'] . ($value['icon'] ? $value['icon'] : "/images/qun_def_b.jpg"),
                 'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/qun_def_b.jpg',
@@ -142,7 +142,7 @@ class webim_plugin_jishigou extends webim_plugin {
         while( $value = DB::fetch($query) ) {
             $members[] = (object)array(
                 'id'   =>  $value['uid'],
-                'nick' =>  $value['nickname'],
+                'nick' =>  webim_to_utf8(strtoupper(CHARSET), $value['nickname']),
             );
         }
         return $members;
@@ -229,35 +229,7 @@ class webim_plugin_jishigou extends webim_plugin {
 
     function nick( $sp ) {
         global $IMC;
-        return (!$IMC['show_realname']||empty($sp['name'])) ? $sp['nickname'] : $sp['name'];
-    }
-
-    function profile_url( $id ) {
-        return jurl('index.php?mod='.$id);
-    }
-
-    function to_utf8( $s ) {
-        if( strtoupper( CHARSET ) == 'UTF-8' ) {
-            return $s;
-        } 
-        if ( function_exists( 'iconv' ) ) {
-            return iconv( CHARSET, 'utf-8', $s );
-        } 
-        require_once 'class_chinese.php';
-        $chs = new Chinese( CHARSET, 'utf-8' );
-        return $chs->Convert( $s );
-    }
-    
-    function from_utf8( $s ) {
-        if( strtoupper( CHARSET ) == 'UTF-8' ) {
-            return $s;
-        } 
-        if ( function_exists( 'iconv' ) ) {
-            return iconv( 'utf-8', CHARSET, $s );
-        } 
-        require_once 'class_chinese.php';
-        $chs = new Chinese( 'utf-8', CHARSET );
-        return $chs->Convert( $s );
+        return (!$IMC['show_realname']||empty($sp['name'])) ? webim_to_utf8(strtoupper(CHARSET), $sp['nickname']) : $sp['name'];
     }
 
 }
