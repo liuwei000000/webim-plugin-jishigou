@@ -234,4 +234,4 @@ class webim_plugin_jishigou extends webim_plugin {
 
 }
 
-
+?>

@@ -70,6 +70,9 @@ if( defined('WEBIM_DEBUG') && WEBIM_DEBUG ) {
 /**
  * load libraries
  */
+if( $IMC['visitor'] ) {
+    require 'lib/GeoIP.class.php';
+} 
 require 'lib/http_client.php';
 require 'lib/webim_client.class.php';
 require 'lib/webim_common.func.php';
@@ -93,5 +96,3 @@ $app->model(new webim_model());
 $app->run();
 
 ?>
-
-

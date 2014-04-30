@@ -35,4 +35,3 @@ if(jget('period')){
 $count = $imdb->get_var( $imdb->prepare( "SELECT count(*) FROM $imdb->webim_histories" ) );
 $action = 'admin.php?mod=plugin&code=manage&id='.$pluginid.'&identifier=webim&pmod=histories';
 ?>
-
