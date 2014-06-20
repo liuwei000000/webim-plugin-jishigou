@@ -32,8 +32,8 @@ class webim_plugin_jishigou extends webim_plugin {
             if( $data && $data['validate_true_name'] )
                 $user['nick'] = $data['validate_true_name'];
         }
-        $user['pic_url'] = face_get($uid);
-        $user['default_pic_url'] = $GLOBALS['_J']['site_url'] . '/images/noavatar.gif';
+        $user['avatar'] = face_get($uid);
+        $user['default_avatar'] = $GLOBALS['_J']['site_url'] . '/images/noavatar.gif';
         $user['url'] = jurl('index.php?mod=' . $uid);
         $user = (object) $user;
         $this->complete_status( array( $user ) );
@@ -55,8 +55,8 @@ class webim_plugin_jishigou extends webim_plugin {
                 "nick" => $this->nick($value),
                 "group" => $value['gid'] ? '' : 'stranger',
                 "url" => jurl('index.php?mod=' . $value['username']),
-                "pic_url" => face_get($value['uid']),
-                'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
+                "avatar" => face_get($value['uid']),
+                'default_avatar' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
             );
         }
         $this->complete_status( $buddies);
@@ -90,8 +90,8 @@ class webim_plugin_jishigou extends webim_plugin {
                 "nick" => $this->nick($value),
                 "group" => "friend",
                 "url" => jurl('index.php?mod=' . $value['username']),
-                "pic_url" => face_get($value['uid']),
-                'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
+                "avatar" => face_get($value['uid']),
+                'default_avatar' => $GLOBALS['_J']['site_url'] . '/images/noavatar.gif',
             );
         }
         $this->complete_status( $buddies );
@@ -124,8 +124,8 @@ class webim_plugin_jishigou extends webim_plugin {
                 "id" => $value['qid'],
                 "nick" => webim_to_utf8(strtoupper(CHARSET), $value['name']),
                 "url" => jurl('index.php?mod=qun&qid='.$value['qid']),
-                "pic_url" => $GLOBALS['_J']['site_url'] . ($value['icon'] ? $value['icon'] : "/images/qun_def_b.jpg"),
-                'default_pic_url' => $GLOBALS['_J']['site_url'] . '/images/qun_def_b.jpg',
+                "avatar" => $GLOBALS['_J']['site_url'] . ($value['icon'] ? $value['icon'] : "/images/qun_def_b.jpg"),
+                'default_avatar' => $GLOBALS['_J']['site_url'] . '/images/qun_def_b.jpg',
                 "status" => $value['desc'],
                 "all_count" => $value['member_num'],
                 "blocked" => false,
