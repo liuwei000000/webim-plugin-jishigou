@@ -151,10 +151,10 @@ class webim_plugin_jishigou extends webim_plugin {
     function menu($uid) {
         global $GLOBALS;
         return array(
-            array("title" => 'newtopic', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mygroup_icon.jpg","link" => jurl('index.php?mod=topic&code=new')),
-            array("title" => 'newreply', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mychannelb_icon.jpg","link" => jurl('index.php?mod=topic&code=newreply')),
-            array("title" => 'hotreply', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/live_icon.jpg","link" => jurl('index.php?mod=topic&code=hotreply')),
-            array("title" => 'hotforward', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/left_define_icon.png","link" => jurl('index.php?mod=topic&code=hotforward'))
+            array("title" => '首页', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mygroup_icon.jpg","link" => jurl('index.php?mod=topic&code=new')),
+            array("title" => '最新评论', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/mychannelb_icon.jpg","link" => jurl('index.php?mod=topic&code=newreply')),
+            array("title" => '热门评论', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/live_icon.jpg","link" => jurl('index.php?mod=topic&code=hotreply')),
+            array("title" => '热门转发', "icon" =>$GLOBALS['_J']['site_url']."/images/lefticon/left_define_icon.png","link" => jurl('index.php?mod=topic&code=hotforward'))
         );
     }
 

@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[JishiGou! Plugin]]></item>
 	<item id="Version"><![CDATA[$SYS_VERSION$]]></item>
-	<item id="Time"><![CDATA[2014-04-25 10:20:08]]></item>
+	<item id="Time"><![CDATA[2014-07-18 12:10:08]]></item>
 	<item id="Data">
 		<item id="plugin">
 			<item id="available"><![CDATA[0]]></item>
